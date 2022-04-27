@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <script>
+    function getWeekDay(date) {
+      let days = ["ВС", "ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"];
+
+      return days[date.getDay()];
+    }
+    function daysLeft() {
+      var year = parseInt(prompt("Год?"));
+      var month = parseInt(prompt("Месяц?"));
+      var day = parseInt(prompt("День?"));
+
+      var today = new Date();
+      var DR = new Date(year, month, day);
+      var raz = today - DR;
+      today.setHours(0, 0, 0, 0);
+      var nextDate = new Date([today.getFullYear(), month, day].join(","));
+      if (nextDate < today) nextDate.setFullYear(today.getFullYear() + 1);
+
+      msPerDay = 24 * 60 * 60 * 1000;
+      daysLeft = Math.round((nextDate.getTime() - today.getTime()) / msPerDay);
+      dayname = "";
+      ds = "" + daysLeft;
+
+      dayname = "Дней";
+
+      if (daysLeft == 0) {
+        alert("У тебя сегодня!");
+      } else {
+        alert("осталось до дня рождения " + daysLeft + dayname + "!");
+      }
+
+      let date = new Date(year, month, day);
+      alert(getWeekDay(date));
+
+      alert(raz / (1000 * 3600 * 24));
+      window.location.reload();
+    }
+  </script>
+
+  <body>
+    <input type="button" value="узнать" OnClick="daysLeft()" />
+  </body>
+</html>

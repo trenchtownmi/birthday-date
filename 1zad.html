@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "">
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css" />
+    <title>1 ЗАДАНИЕ</title>
+  </head>
+  <script>
+    function time() {
+      var d = new Date();
+      var h = d.getHours();
+      var m = d.getMinutes();
+
+      var s = d.getSeconds();
+      if (h < 10) document.getElementById("h").innerHTML = "0" + h;
+      else document.getElementById("h").innerHTML = h;
+      if (m < 10) document.getElementById("m").innerHTML = "0" + m;
+      else document.getElementById("m").innerHTML = m;
+      if (s < 10) document.getElementById("s").innerHTML = "0" + s;
+      else document.getElementById("s").innerHTML = s;
+      setTimeout("time()", 1000);
+    }
+  </script>
+  <body onLoad="time()">
+    <table>
+      <tr>
+        <td id="h"></td>
+        <td>:</td>
+        <td id="m"></td>
+        <td>:</td>
+        <td id="s"></td>
+      </tr>
+      <a href="2zad.html">2 задание + самостоятельная</a>
+    </table>
+  </body>
+</html>
